@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+	<title></title>
+	<meta name="generator" content="LibreOffice 25.8.4.2 (Linux)"/>
+	<meta name="created" content="00:00:00"/>
+	<meta name="changed" content="00:00:00"/>
+	<style type="text/css">
+		@page { size: 8.27in 11.69in; margin: 0.79in }
+		p { margin-bottom: 0.1in; line-height: 115%; background: transparent }
+		pre { font-size: 10pt; font-family: "Liberation Mono", monospace; background: transparent }
+	</style>
+</head>
+<body lang="en-US" link="#000080" vlink="#800000" dir="ltr"><pre>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;Saranya &amp; Ajesh � Wedding Invitation&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            margin: 0; padding: 0; font-family: 'Cinzel', serif;
+            background-color: #f4f1ea; color: #333; text-align: center;
+        }
+        .container {
+            max-width: 600px; margin: 30px auto; padding: 20px;
+            border: 2px solid #d4af37; background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 { color: #d4af37; font-size: 2.2em; }
+        .names { font-size: 1.8em; margin: 20px 0; font-weight: bold; }
+        
+        /* Countdown Styles */
+        #countdown {
+            display: flex; justify-content: center; gap: 15px;
+            margin: 20px 0; font-weight: bold; color: #b8962d;
+        }
+        .time-box { background: #fdfaf0; padding: 10px; border-radius: 5px; min-width: 60px; border: 1px solid #eee; }
+        
+        .btn {
+            display: inline-block; margin: 10px; padding: 12px 25px;
+            background-color: #25D366; color: white; text-decoration: none;
+            border-radius: 5px; font-weight: bold; cursor: pointer; border: none;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;div class=&quot;container&quot;&gt;
+    &lt;h1&gt;Wedding Invitation&lt;/h1&gt;
+    &lt;p&gt;We joyfully request the pleasure of your company at the marriage of&lt;/p&gt;
+    &lt;div class=&quot;names&quot;&gt;Saranya &amp; Ajesh&lt;/div&gt;
+
+    &lt;div id=&quot;countdown&quot;&gt;
+        &lt;div class=&quot;time-box&quot;&gt;&lt;span id=&quot;days&quot;&gt;00&lt;/span&gt;&lt;br&gt;&lt;small&gt;Days&lt;/small&gt;&lt;/div&gt;
+        &lt;div class=&quot;time-box&quot;&gt;&lt;span id=&quot;hours&quot;&gt;00&lt;/span&gt;&lt;br&gt;&lt;small&gt;Hrs&lt;/small&gt;&lt;/div&gt;
+        &lt;div class=&quot;time-box&quot;&gt;&lt;span id=&quot;minutes&quot;&gt;00&lt;/span&gt;&lt;br&gt;&lt;small&gt;Mins&lt;/small&gt;&lt;/div&gt;
+        &lt;div class=&quot;time-box&quot;&gt;&lt;span id=&quot;seconds&quot;&gt;00&lt;/span&gt;&lt;br&gt;&lt;small&gt;Secs&lt;/small&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&quot;details&quot;&gt;
+        &lt;p&gt;&lt;strong&gt;Date:&lt;/strong&gt; Sunday, May 18, 2025&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; Grand Plaza Ballroom&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;button class=&quot;btn&quot; onclick=&quot;shareWhatsapp()&quot;&gt;Share on WhatsApp&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+    // 1. SET THE WEDDING DATE HERE
+    const weddingDate = new Date(&quot;May 18, 2025 10:00:00&quot;).getTime();
+
+    // 2. Countdown Logic
+    const timer = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById(&quot;days&quot;).innerText = days;
+        document.getElementById(&quot;hours&quot;).innerText = hours;
+        document.getElementById(&quot;minutes&quot;).innerText = minutes;
+        document.getElementById(&quot;seconds&quot;).innerText = seconds;
+
+        if (distance &lt; 0) {
+            clearInterval(timer);
+            document.getElementById(&quot;countdown&quot;).innerHTML = &quot;&lt;h3&gt;The Celebration has Begun!&lt;/h3&gt;&quot;;
+        }
+    }, 1000);
+
+    // 3. WhatsApp Sharing Logic
+    function shareWhatsapp() {
+        const text = encodeURIComponent(&quot;You're invited! Join us for the wedding of Saranya &amp; Ajesh. View the invitation here: &quot; + window.location.href);
+        window.open(https://wa.me/?text=${text}, '_blank');
+    }
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+</body>
+</html>
