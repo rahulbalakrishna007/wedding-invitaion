@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saranya & Ajesh – Wedding Invitation</title>
+    <style>
+        body {
+            margin: 0; padding: 0; font-family: 'Cinzel', serif;
+            background-color: #f4f1ea; color: #333; text-align: center;
+        }
+        .container {
+            max-width: 600px; margin: 30px auto; padding: 20px;
+            border: 2px solid #d4af37; background: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 { color: #d4af37; font-size: 2.2em; }
+        .names { font-size: 1.8em; margin: 20px 0; font-weight: bold; }
+        
+        /* Countdown Styles */
+        #countdown {
+            display: flex; justify-content: center; gap: 15px;
+            margin: 20px 0; font-weight: bold; color: #b8962d;
+        }
+        .time-box { background: #fdfaf0; padding: 10px; border-radius: 5px; min-width: 60px; border: 1px solid #eee; }
+        
+        .btn {
+            display: inline-block; margin: 10px; padding: 12px 25px;
+            background-color: #25D366; color: white; text-decoration: none;
+            border-radius: 5px; font-weight: bold; cursor: pointer; border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Wedding Invitation</h1>
+    <p>We joyfully request the pleasure of your company at the marriage of</p>
+    <div class="names">Saranya & Ajesh</div>
+
+    <div id="countdown">
+        <div class="time-box"><span id="days">00</span><br><small>Days</small></div>
+        <div class="time-box"><span id="hours">00</span><br><small>Hrs</small></div>
+        <div class="time-box"><span id="minutes">00</span><br><small>Mins</small></div>
+        <div class="time-box"><span id="seconds">00</span><br><small>Secs</small></div>
+    </div>
+
+    <div class="details">
+        <p><strong>Date:</strong> Wednesday, May 14, 2025</p>
+        <p><strong>Location:</strong> Grand Plaza Ballroom</p>
+    </div>
+
+    <button class="btn" onclick="shareWhatsapp()">Share on WhatsApp</button>
+</div>
+
+<script>
+    // 1. SET THE WEDDING DATE HERE
+    const weddingDate = new Date("May 14, 2025 10:00:00").getTime();
+
+    // 2. Countdown Logic
+    const timer = setInterval(function() {
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerText = days;
+        document.getElementById("hours").innerText = hours;
+        document.getElementById("minutes").innerText = minutes;
+        document.getElementById("seconds").innerText = seconds;
+
+        if (distance < 0) {
+            clearInterval(timer);
+            document.getElementById("countdown").innerHTML = "<h3>The Celebration has Begun!</h3>";
+        }
+    }, 1000);
+
+    // 3. WhatsApp Sharing Logic
+    function shareWhatsapp() {
+        const text = encodeURIComponent("You're invited! Join us for the wedding of Saranya & Ajesh. View the invitation here: " + window.location.href);
+        window.open(`https://wa.me/?text=${text}`, '_blank');
+    }
+</script>
+
+</body>
+</html>
